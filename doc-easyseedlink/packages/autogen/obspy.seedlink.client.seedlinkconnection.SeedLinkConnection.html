@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>obspy.seedlink.client.seedlinkconnection.SeedLinkConnection &mdash; ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</title>
+    
+    <link rel="stylesheet" href="../../static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/font.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.7.x-3204-g87fa0b3c26-dirty',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../static/favicon.ico"/>
+    <link rel="top" title="ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)" href="../../index.html" />
+    <link rel="up" title="obspy.seedlink.client.seedlinkconnection" href="obspy.seedlink.client.seedlinkconnection.html" />
+    <link rel="next" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream.html" />
+    <link rel="prev" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__.html" />
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript">
+  var shiftWindow = function() { scrollBy(0, -70) };
+  if (location.hash) shiftWindow();
+  window.addEventListener("hashchange", shiftWindow);
+</script>
+
+  </head>
+  <body>
+<div id="wrapper">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="/" class="navbar-brand" title="Home"><span class="icon-obspy"></span>&nbsp;ObsPy</a>
+</div>
+<div class="navbar-collapse collapse">
+<form class="navbar-form navbar-right" role="search" method="get" action="http://docs.obspy.org/search.html">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Search Docs" name="q">
+</div>
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="https://github.com/obspy/obspy/" title="GitHub"><span class="icon-github iconx2"></span><span class="hidden-sm">&nbsp;GitHub</span></a></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Documentation"><span class="glyphicon glyphicon-book iconx2"></span><span class="hidden-sm">&nbsp;Documentation</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Getting&nbsp;Started</li>
+<li><a href="http://tutorial.obspy.org/">Tutorial</a></li>
+<li><a href="http://gallery.obspy.org/">Gallery</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">API&nbsp;Documentation&nbsp;(latest&nbsp;release)</li>
+<li class="dropdown-submenu">
+<a href="#">General&nbsp;Packages</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.core.html">obspy.core</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.imaging.html">obspy.imaging</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.realtime.html">obspy.realtime</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.signal.html">obspy.signal</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.station.html">obspy.station</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.taup.html">obspy.taup</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.xseed.html">obspy.xseed</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Waveform&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.css.html">obspy.css</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.datamark.html">obspy.datamark</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.gse2.html">obspy.gse2</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.mseed.html">obspy.mseed</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.sac.html">obspy.sac</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seisan.html">obspy.seisan</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seg2.html">obspy.seg2</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.segy.html">obspy.segy</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.sh.html">obspy.sh</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.wav.html">obspy.wav</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.y.html">obspy.y</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Database&nbsp;and&nbsp;Web&nbsp;Service&nbsp;Clients</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.arclink.html">obspy.arclink</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.db.html">obspy.db</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.earthworm.html">obspy.earthworm</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.fdsn.html">obspy.fdsn</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.iris.html">obspy.iris</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.neic.html">obspy.neic</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.neries.html">obspy.neries</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.pde.html">obspy.pde</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seedlink.html">obspy.seedlink</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seishub.html">obspy.seishub</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="dropdown-header">API&nbsp;Documentation&nbsp;(current&nbsp;master)</li>
+<li class="dropdown-submenu">
+<a href="#">General&nbsp;Packages</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.core.html">obspy.core</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.imaging.html">obspy.imaging</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.realtime.html">obspy.realtime</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.signal.html">obspy.signal</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.station.html">obspy.station</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.taup.html">obspy.taup</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.xseed.html">obspy.xseed</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Waveform&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.css.html">obspy.css</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.datamark.html">obspy.datamark</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.gse2.html">obspy.gse2</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.mseed.html">obspy.mseed</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.sac.html">obspy.sac</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seisan.html">obspy.seisan</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seg2.html">obspy.seg2</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.segy.html">obspy.segy</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.sh.html">obspy.sh</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.wav.html">obspy.wav</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.y.html">obspy.y</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Event&nbsp;Data&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.core.quakeml.html">obspy.core.quakeml</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.ndk.html">obspy.ndk</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.pde.html">obspy.pde</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Database&nbsp;and&nbsp;Web&nbsp;Service&nbsp;Clients</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.arclink.html">obspy.arclink</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.db.html">obspy.db</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.earthworm.html">obspy.earthworm</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.fdsn.html">obspy.fdsn</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.iris.html">obspy.iris</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.neic.html">obspy.neic</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.neries.html">obspy.neries</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seedlink.html">obspy.seedlink</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seishub.html">obspy.seishub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Mailing&nbsp;Lists"><span class="glyphicon glyphicon-envelope iconx2"></span><span class="hidden-sm">&nbsp;Mailing&nbsp;Lists</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Announcements&nbsp;Mailing&nbsp;List&nbsp;(public)</li>
+<li><a href="http://lists.swapbytes.de/mailman/listinfo/obspy-announcements"><span class="glyphicon glyphicon-user"></span>&nbsp;Subscribe</a></li>
+<li><a href="http://lists.swapbytes.de/archives/obspy-announcements/"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Archive</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Users&nbsp;Mailing&nbsp;List&nbsp;(public)</li>
+<li><a href="http://lists.swapbytes.de/mailman/listinfo/obspy-users"><span class="glyphicon glyphicon-user"></span>&nbsp;Subscribe</a></li>
+<li><a href="http://lists.swapbytes.de/archives/obspy-users"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Archives</a></li>
+<li><a href="mailto:users@obspy.org"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Post&nbsp;a&nbsp;message</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Developer&nbsp;Resources"><span class="glyphicon glyphicon-cog iconx2"></span><span class="hidden-sm">&nbsp;Developer&nbsp;Resources</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="https://github.com/obspy/obspy/blob/master/CONTRIBUTING.md">How&nbsp;to&nbsp;contribute</a></li>
+<li><a href="http://docs.obspy.org/coding_style.html">Coding&nbsp;Style&nbsp;Guide</a></li>
+<li><a href="https://github.com/obspy/obspy/releases/">All&nbsp;Releases</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Code&nbsp;Analysis</li>
+<li><a href="http://docs.obspy.org/master/pep8/index.html">PEP8</a></li>
+<li><a href="http://docs.obspy.org/master/coverage/index.html">Python&nbsp;Coverage</a></li>
+<li><a href="http://docs.obspy.org/master/c_coverage/index.html">C&nbsp;Coverage</a></li>
+<li><a href="https://coveralls.io/r/obspy/obspy?branch=master">Coveralls</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Continuous&nbsp;Integration</li>
+<li><a href="http://tests.obspy.org/">Test&nbsp;Reports</a></li>
+<li><a href="https://travis-ci.org/obspy/obspy/"><span class="icon-travis"></span>&nbsp;Travis&nbsp;CI</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div id="content" class="container">
+  
+    <div class="breadcrumb pull-right"><a href="../../genindex.html" title="General Index"
+         accesskey="I">index</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="../../py-modindex.html" title="Python Module Index"
+         >modules</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream.html" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream"
+         accesskey="N">next</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__.html" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__"
+         accesskey="P">previous</a>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="../../contents.html">ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</a></li>
+        <li><a href="../index.html" >ObsPy Library Reference</a></li>
+        <li><a href="../obspy.seedlink.html" >obspy.seedlink - SeedLink client for ObsPy</a></li>
+        <li><a href="obspy.seedlink.client.seedlinkconnection.html" accesskey="U">obspy.seedlink.client.seedlinkconnection</a></li> 
+    </ol>
+  
+  <div class="section" id="obspy-seedlink-client-seedlinkconnection-seedlinkconnection">
+<h1>obspy.seedlink.client.seedlinkconnection.SeedLinkConnection<a class="headerlink" href="#obspy-seedlink-client-seedlinkconnection-seedlinkconnection" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection">
+<em class="property">class </em><tt class="descname">SeedLinkConnection</tt><a class="reference internal" href="../../modules/obspy/seedlink/client/seedlinkconnection.html#SeedLinkConnection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">future.types.newobject.newobject</span></tt></p>
+<p>Class to manage a connection to a SeedLink server using a Socket.</p>
+<p>See obspy.realtime.seedlink.SLClient for an example of how to create
+and use this SeedLinkConnection object.
+A new SeedLink application can be created by sub-classing SLClient,
+or by creating a new class and invoking the methods of SeedLinkConnection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>SEEDLINK_PROTOCOL_PREFIX</strong> <span class="dash" /> URI/URL prefix for seedlink
+servers (&#8220;seedlink://&#8221;).</li>
+<li><strong>UNISTATION</strong> <span class="dash" /> The station code used for uni-station mode.</li>
+<li><strong>UNINETWORK</strong> <span class="dash" /> The network code used for uni-station mode.</li>
+<li><strong>DFT_READBUF_SIZE</strong> <span class="dash" /> Default size for buffer to hold responses
+from server (default is 1024).</li>
+<li><strong>QUOTE_CHAR</strong> <span class="dash" /> Character used for delimiting timestamp strings in the
+statefile.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Publicly accessible (get/set) parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sladdr</strong> <span class="dash" /> The host:port of the SeedLink server.</li>
+<li><strong>keepalive</strong> <span class="dash" /> Interval to send keepalive/heartbeat (seconds)
+(default is 0 sec).</li>
+<li><strong>netto</strong> <span class="dash" /> Network timeout (seconds) (default is 120 sec).</li>
+<li><strong>netdly</strong> <span class="dash" /> Network reconnect delay (seconds)  (default is 30 sec).</li>
+<li><strong>info_string</strong> <span class="dash" /> String containing concatenation of contents of last
+terminated set of INFO packets.</li>
+<li><strong>statefile</strong> <span class="dash" /> File name for storing state information.</li>
+<li><strong>lastpkttime</strong> <span class="dash" /> Flag to control last packet time usage,
+if true, begin_time is appended to DATA command (Default is False).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Protected parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>streams</strong> <span class="dash" /> Vector of SLNetStation objects.</li>
+<li><strong>begin_time</strong> <span class="dash" /> Beginning of time window.</li>
+<li><strong>end_time</strong> <span class="dash" /> End of time window.</li>
+<li><strong>resume</strong> <span class="dash" /> Flag to control resuming with sequence numbers.</li>
+<li><strong>multistation</strong> <span class="dash" /> Flag to indicate multistation mode.</li>
+<li><strong>dialup</strong> <span class="dash" /> Flag to indicate dial-up mode.</li>
+<li><strong>terminate_flag</strong> <span class="dash" /> Flag to control connection termination.</li>
+<li><strong>server_id</strong> <span class="dash" /> ID of the remote SeedLink server.</li>
+<li><strong>server_version</strong> <span class="dash" /> Version of the remote SeedLink server.</li>
+<li><strong>info_request_string</strong> <span class="dash" /> INFO level to request.</li>
+<li><a class="reference external" href="http://docs.python.org/2.7/library/socket.html#module-socket" title="(in Python v2.7)"><strong>socket</strong></a> <span class="dash" /> The network socket.</li>
+<li><strong>state</strong> <span class="dash" /> Persistent state information.</li>
+<li><strong>infoStrBuf</strong> <span class="dash" /> String to store INFO packet contents.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">DFT_READBUF_SIZE</span></tt></td>
+<td>int(x=0) -&gt; int or long</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">QUOTE_CHAR</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">SEEDLINK_PROTOCOL_PREFIX</span></tt></td>
+<td>unicode(object=&#8217;&#8216;) -&gt; unicode object</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">UNINETWORK</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">UNISTATION</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">__dict__</span></tt></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__doc__</span></tt></td>
+<td>unicode(object=&#8217;&#8216;) -&gt; unicode object</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">__module__</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__weakref__</span></tt></td>
+<td>list of weak references to the object (if defined)</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">infoStrBuf</span></tt></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Public Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.addStream"><tt class="xref py py-obj docutils literal"><span class="pre">addStream</span></tt></a></td>
+<td>Add a new stream entry to the stream chain for the given net/station parameters.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.checkVersion.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.checkVersion" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.checkVersion"><tt class="xref py py-obj docutils literal"><span class="pre">checkVersion</span></tt></a></td>
+<td>Checks server version number against a given specified value.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.checkslcd.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.checkslcd" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.checkslcd"><tt class="xref py py-obj docutils literal"><span class="pre">checkslcd</span></tt></a></td>
+<td>Check this SeedLinkConnection description has valid parameters.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.close.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.close" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.close"><tt class="xref py py-obj docutils literal"><span class="pre">close</span></tt></a></td>
+<td>Closes this SeedLinkConnection by closing the network socket and saving</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.collect.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.collect" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.collect"><tt class="xref py py-obj docutils literal"><span class="pre">collect</span></tt></a></td>
+<td>Manage a connection to a SeedLink server based on the values</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.configLink.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.configLink" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.configLink"><tt class="xref py py-obj docutils literal"><span class="pre">configLink</span></tt></a></td>
+<td>Configure/negotiate data stream(s) with the remote SeedLink</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.connect.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.connect" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.connect"><tt class="xref py py-obj docutils literal"><span class="pre">connect</span></tt></a></td>
+<td>Open a network socket connection to a SeedLink server. Expects sladdr</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.createInfoString.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.createInfoString" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.createInfoString"><tt class="xref py py-obj docutils literal"><span class="pre">createInfoString</span></tt></a></td>
+<td>Method was removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.disconnect.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.disconnect" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.disconnect"><tt class="xref py py-obj docutils literal"><span class="pre">disconnect</span></tt></a></td>
+<td>Close the network socket associated with this connection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.doTerminate.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.doTerminate" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.doTerminate"><tt class="xref py py-obj docutils literal"><span class="pre">doTerminate</span></tt></a></td>
+<td>Terminate the collection loop.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getInfoString.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getInfoString" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getInfoString"><tt class="xref py py-obj docutils literal"><span class="pre">getInfoString</span></tt></a></td>
+<td>Returns the results of the last INFO request.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getKeepAlive.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getKeepAlive" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getKeepAlive"><tt class="xref py py-obj docutils literal"><span class="pre">getKeepAlive</span></tt></a></td>
+<td>Returns the interval to send keepalive/heartbeat (seconds).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getNetDelay.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getNetDelay" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getNetDelay"><tt class="xref py py-obj docutils literal"><span class="pre">getNetDelay</span></tt></a></td>
+<td>Returns the network reconnect delay (seconds).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getNetTimout.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getNetTimout" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getNetTimout"><tt class="xref py py-obj docutils literal"><span class="pre">getNetTimout</span></tt></a></td>
+<td>Returns the network timeout (seconds).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getSLAddress.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getSLAddress" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getSLAddress"><tt class="xref py py-obj docutils literal"><span class="pre">getSLAddress</span></tt></a></td>
+<td>Returns the host:port of the SeedLink server.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getState.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getState" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getState"><tt class="xref py py-obj docutils literal"><span class="pre">getState</span></tt></a></td>
+<td>Returns the SLState state object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getStreams.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getStreams" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.getStreams"><tt class="xref py py-obj docutils literal"><span class="pre">getStreams</span></tt></a></td>
+<td>Returns a copy of the Vector of SLNetStation objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.isConnected.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.isConnected" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.isConnected"><tt class="xref py py-obj docutils literal"><span class="pre">isConnected</span></tt></a></td>
+<td>Returns connection state of the connection socket.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.isConnectedImpl.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.isConnectedImpl" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.isConnectedImpl"><tt class="xref py py-obj docutils literal"><span class="pre">isConnectedImpl</span></tt></a></td>
+<td>Check a socket for write ability using select()</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateMultiStation.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateMultiStation" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateMultiStation"><tt class="xref py py-obj docutils literal"><span class="pre">negotiateMultiStation</span></tt></a></td>
+<td>Negotiate a SeedLink connection using multi-station mode and</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateStation.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateStation" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateStation"><tt class="xref py py-obj docutils literal"><span class="pre">negotiateStation</span></tt></a></td>
+<td>Negotiate a SeedLink connection for a single station and issue</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateUniStation.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateUniStation" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.negotiateUniStation"><tt class="xref py py-obj docutils literal"><span class="pre">negotiateUniStation</span></tt></a></td>
+<td>Negotiate a SeedLink connection in uni-station mode and issue the</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.next.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.next" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.next"><tt class="xref py py-obj docutils literal"><span class="pre">next</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.parseStreamlist.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.parseStreamlist" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.parseStreamlist"><tt class="xref py py-obj docutils literal"><span class="pre">parseStreamlist</span></tt></a></td>
+<td>Parse a string of streams and selectors and add them to the stream chain for configuring a multi-station connection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.readStreamList.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.readStreamList" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.readStreamList"><tt class="xref py py-obj docutils literal"><span class="pre">readStreamList</span></tt></a></td>
+<td>Read a list of streams and selectors from a file and add them to the stream chain for configuring a multi-station connection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.receiveData.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.receiveData" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.receiveData"><tt class="xref py py-obj docutils literal"><span class="pre">receiveData</span></tt></a></td>
+<td>Read bytes from the server.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.recoverState.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.recoverState" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.recoverState"><tt class="xref py py-obj docutils literal"><span class="pre">recoverState</span></tt></a></td>
+<td>Recover the state file and put the sequence numbers and time stamps into the pre-existing stream chain entries.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.requestInfo.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.requestInfo" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.requestInfo"><tt class="xref py py-obj docutils literal"><span class="pre">requestInfo</span></tt></a></td>
+<td>Add an INFO request to the SeedLink Connection Description.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.saveState.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.saveState" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.saveState"><tt class="xref py py-obj docutils literal"><span class="pre">saveState</span></tt></a></td>
+<td>Save all current sequence numbers and time stamps into the given state file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sayHello.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sayHello" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sayHello"><tt class="xref py py-obj docutils literal"><span class="pre">sayHello</span></tt></a></td>
+<td>Send the HELLO command and attempt to parse the server version</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sendData.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sendData" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sendData"><tt class="xref py py-obj docutils literal"><span class="pre">sendData</span></tt></a></td>
+<td>Send bytes to the server.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sendInfoRequest.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sendInfoRequest" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.sendInfoRequest"><tt class="xref py py-obj docutils literal"><span class="pre">sendInfoRequest</span></tt></a></td>
+<td>Sends a request for the specified INFO level. The verbosity level</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setBeginTime.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setBeginTime" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setBeginTime"><tt class="xref py py-obj docutils literal"><span class="pre">setBeginTime</span></tt></a></td>
+<td>Sets begin_time for initiation of continuous data transmission.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setEndTime.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setEndTime" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setEndTime"><tt class="xref py py-obj docutils literal"><span class="pre">setEndTime</span></tt></a></td>
+<td>Sets end_time for termination of data transmission.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setKeepAlive.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setKeepAlive" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setKeepAlive"><tt class="xref py py-obj docutils literal"><span class="pre">setKeepAlive</span></tt></a></td>
+<td>Sets interval to send keepalive/heartbeat (seconds).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setLastpkttime.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setLastpkttime" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setLastpkttime"><tt class="xref py py-obj docutils literal"><span class="pre">setLastpkttime</span></tt></a></td>
+<td>Sets a specified start time for beginning of data transmission .</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setNetDelay.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setNetDelay" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setNetDelay"><tt class="xref py py-obj docutils literal"><span class="pre">setNetDelay</span></tt></a></td>
+<td>Sets the network reconnect delay (seconds).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setNetTimout.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setNetTimout" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setNetTimout"><tt class="xref py py-obj docutils literal"><span class="pre">setNetTimout</span></tt></a></td>
+<td>Sets the network timeout (seconds).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setSLAddress.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setSLAddress" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setSLAddress"><tt class="xref py py-obj docutils literal"><span class="pre">setSLAddress</span></tt></a></td>
+<td>Sets the host:port of the SeedLink server.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setStateFile.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setStateFile" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setStateFile"><tt class="xref py py-obj docutils literal"><span class="pre">setStateFile</span></tt></a></td>
+<td>Set the state file and recover state.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setUniParams.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setUniParams" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.setUniParams"><tt class="xref py py-obj docutils literal"><span class="pre">setUniParams</span></tt></a></td>
+<td>Set the parameters for a uni-station mode connection for the</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.terminate.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.terminate" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.terminate"><tt class="xref py py-obj docutils literal"><span class="pre">terminate</span></tt></a></td>
+<td>Sets terminate flag, closes connection and clears state.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.updateStream.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.updateStream" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.updateStream"><tt class="xref py py-obj docutils literal"><span class="pre">updateStream</span></tt></a></td>
+<td>Update the appropriate stream chain entry given a Mini-SEED record.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Special Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__init__.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__init__" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a></td>
+<td>Creates a new instance of SeedLinkConnection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__long__.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__long__" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__long__"><tt class="xref py py-obj docutils literal"><span class="pre">__long__</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__native__.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__native__" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__native__"><tt class="xref py py-obj docutils literal"><span class="pre">__native__</span></tt></a></td>
+<td>Hook for the future.utils.native() function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__nonzero__.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__nonzero__" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__nonzero__"><tt class="xref py py-obj docutils literal"><span class="pre">__nonzero__</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__.html#obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__" title="obspy.seedlink.client.seedlinkconnection.SeedLinkConnection.__unicode__"><tt class="xref py py-obj docutils literal"><span class="pre">__unicode__</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+</div>
+
+<footer>
+<p class="text-muted small">
+By the <a href="https://github.com/orgs/obspy/members">ObsPy
+Development Team</a> and many <a href="#contributers" role="button"
+data-toggle="modal" data-target="#contributers">Awesome Contributors</a>™ &nbsp;|&nbsp; Built with
+<a href="http://getbootstrap.com/">Bootstrap</a> and
+<a href="http://glyphicons.com//">Glyphicons</a> &nbsp;|&nbsp; Copyright 2008-2014
+</p>
+</footer>
+<div id="contributers" class="modal fade" tabindex="-1"
+role="dialog" aria-labelledby="contributersLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"
+aria-hidden="true">&times;</button>
+<h3 class="modal-title" id="contributersLabel">Thank you!</h3>
+</div>
+<div class="modal-body">
+<p>We would like to thank our contributors, whose efforts make
+this software what it is. These people have helped by writing code
+and documentation, and by testing. They have created and
+maintained this product, its associated libraries and
+applications, our build tools and our web sites.</p>
+<h4>Contributors</h4>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+<ul>
+<li>Adolfo Inza</li>
+<li>Alessia Maggi</li>
+<li>Anthony Lomax</li>
+<li>Bernhard Morgenstern</li>
+<li>Charles J. Ammon</li>
+<li>Christian Sippl</li>
+<li>Conny Hammer</li>
+<li>Elliott Sales de Andrade</li>
+<li>Fabian Engels</li>
+<li>Gaute Hope</li>
+<li>Joachim Saul</li>
+<li>Lars Krieger</li>
+<li>Lion Krischer</li>
+<li>Marius Isken</li>
+<li>Moritz Beyreuther</li>
+<li>Paul Käufl</li>
+<li>Philippe Lesage</li>
+<li>Sebastian Heimann</li>
+<li>Simon Kremers</li>
+<li>Sven Egdorf</li>
+<li>Thomas Lecocq</li>
+<li>Tom Richter</li>
+<li>Victor Kress</li>
+<li>Ólafur St. Arnarsson</li>
+</ul>
+</div>
+<div class="col-md-6">
+<ul>
+<li>Alberto Michelini</li>
+<li>Andreas Köhler</li>
+<li>Arthur Snoke</li>
+<li>Chad Trabant</li>
+<li>Chris Scheingraber</li>
+<li>Claudio Satriano</li>
+<li>David Ketchum</li>
+<li>Emiliano Russo</li>
+<li>Felix Bernauer</li>
+<li>Heiner Igel</li>
+<li>Joachim Wassermann</li>
+<li>Leonardo Uieda</li>
+<li>Marcus Walther</li>
+<li>Martin van Driel</li>
+<li>Nathaniel C. Miller</li>
+<li>Peter Danecek</li>
+<li>Robert Barsch</li>
+<li>Seyed Kasra Hosseini Zad</li>
+<li>Stefan Stange</li>
+<li>Sébastien Bonaimé</li>
+<li>Tobias Megies</li>
+<li>Tommaso Fabbri</li>
+<li>Yannik Behr</li>
+</ul>
+</div>
+</div>
+</div>
+<h4>Funds</h4>
+<p>ObsPy was partially funded by the</p>
+<ul>
+<li>German Science Foundation (DFG) via grant DFG IG 16/9-1</li>
+<li>German Ministry for Education and Research (BMBF), GEOTECHNOLOGIEN grant 03G0646H.</li>
+<li>NERA project (Network of European Research Infrastructures for Earthquake Risk Assessment and Mitigation) under the European Community&#39;s Seventh Framework Programme (FP7/2007-2013) grant agreement n° 262330</li>
+<li>Leibniz Institute for Applied Geophysics (LIAG)</li>
+</ul>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview: module code &mdash; ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</title>
+    
+    <link rel="stylesheet" href="../static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../static/font.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.x-3204-g87fa0b3c26-dirty',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <link rel="top" title="ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)" href="../index.html" />
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript">
+  var shiftWindow = function() { scrollBy(0, -70) };
+  if (location.hash) shiftWindow();
+  window.addEventListener("hashchange", shiftWindow);
+</script>
+
+  </head>
+  <body>
+<div id="wrapper">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="/" class="navbar-brand" title="Home"><span class="icon-obspy"></span>&nbsp;ObsPy</a>
+</div>
+<div class="navbar-collapse collapse">
+<form class="navbar-form navbar-right" role="search" method="get" action="http://docs.obspy.org/search.html">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Search Docs" name="q">
+</div>
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="https://github.com/obspy/obspy/" title="GitHub"><span class="icon-github iconx2"></span><span class="hidden-sm">&nbsp;GitHub</span></a></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Documentation"><span class="glyphicon glyphicon-book iconx2"></span><span class="hidden-sm">&nbsp;Documentation</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Getting&nbsp;Started</li>
+<li><a href="http://tutorial.obspy.org/">Tutorial</a></li>
+<li><a href="http://gallery.obspy.org/">Gallery</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">API&nbsp;Documentation&nbsp;(latest&nbsp;release)</li>
+<li class="dropdown-submenu">
+<a href="#">General&nbsp;Packages</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.core.html">obspy.core</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.imaging.html">obspy.imaging</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.realtime.html">obspy.realtime</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.signal.html">obspy.signal</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.station.html">obspy.station</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.taup.html">obspy.taup</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.xseed.html">obspy.xseed</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Waveform&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.css.html">obspy.css</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.datamark.html">obspy.datamark</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.gse2.html">obspy.gse2</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.mseed.html">obspy.mseed</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.sac.html">obspy.sac</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seisan.html">obspy.seisan</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seg2.html">obspy.seg2</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.segy.html">obspy.segy</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.sh.html">obspy.sh</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.wav.html">obspy.wav</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.y.html">obspy.y</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Database&nbsp;and&nbsp;Web&nbsp;Service&nbsp;Clients</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.arclink.html">obspy.arclink</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.db.html">obspy.db</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.earthworm.html">obspy.earthworm</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.fdsn.html">obspy.fdsn</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.iris.html">obspy.iris</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.neic.html">obspy.neic</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.neries.html">obspy.neries</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.pde.html">obspy.pde</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seedlink.html">obspy.seedlink</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seishub.html">obspy.seishub</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="dropdown-header">API&nbsp;Documentation&nbsp;(current&nbsp;master)</li>
+<li class="dropdown-submenu">
+<a href="#">General&nbsp;Packages</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.core.html">obspy.core</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.imaging.html">obspy.imaging</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.realtime.html">obspy.realtime</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.signal.html">obspy.signal</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.station.html">obspy.station</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.taup.html">obspy.taup</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.xseed.html">obspy.xseed</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Waveform&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.css.html">obspy.css</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.datamark.html">obspy.datamark</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.gse2.html">obspy.gse2</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.mseed.html">obspy.mseed</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.sac.html">obspy.sac</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seisan.html">obspy.seisan</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seg2.html">obspy.seg2</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.segy.html">obspy.segy</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.sh.html">obspy.sh</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.wav.html">obspy.wav</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.y.html">obspy.y</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Event&nbsp;Data&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.core.quakeml.html">obspy.core.quakeml</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.ndk.html">obspy.ndk</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.pde.html">obspy.pde</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Database&nbsp;and&nbsp;Web&nbsp;Service&nbsp;Clients</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.arclink.html">obspy.arclink</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.db.html">obspy.db</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.earthworm.html">obspy.earthworm</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.fdsn.html">obspy.fdsn</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.iris.html">obspy.iris</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.neic.html">obspy.neic</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.neries.html">obspy.neries</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seedlink.html">obspy.seedlink</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seishub.html">obspy.seishub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Mailing&nbsp;Lists"><span class="glyphicon glyphicon-envelope iconx2"></span><span class="hidden-sm">&nbsp;Mailing&nbsp;Lists</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Announcements&nbsp;Mailing&nbsp;List&nbsp;(public)</li>
+<li><a href="http://lists.swapbytes.de/mailman/listinfo/obspy-announcements"><span class="glyphicon glyphicon-user"></span>&nbsp;Subscribe</a></li>
+<li><a href="http://lists.swapbytes.de/archives/obspy-announcements/"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Archive</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Users&nbsp;Mailing&nbsp;List&nbsp;(public)</li>
+<li><a href="http://lists.swapbytes.de/mailman/listinfo/obspy-users"><span class="glyphicon glyphicon-user"></span>&nbsp;Subscribe</a></li>
+<li><a href="http://lists.swapbytes.de/archives/obspy-users"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Archives</a></li>
+<li><a href="mailto:users@obspy.org"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Post&nbsp;a&nbsp;message</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Developer&nbsp;Resources"><span class="glyphicon glyphicon-cog iconx2"></span><span class="hidden-sm">&nbsp;Developer&nbsp;Resources</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="https://github.com/obspy/obspy/blob/master/CONTRIBUTING.md">How&nbsp;to&nbsp;contribute</a></li>
+<li><a href="http://docs.obspy.org/coding_style.html">Coding&nbsp;Style&nbsp;Guide</a></li>
+<li><a href="https://github.com/obspy/obspy/releases/">All&nbsp;Releases</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Code&nbsp;Analysis</li>
+<li><a href="http://docs.obspy.org/master/pep8/index.html">PEP8</a></li>
+<li><a href="http://docs.obspy.org/master/coverage/index.html">Python&nbsp;Coverage</a></li>
+<li><a href="http://docs.obspy.org/master/c_coverage/index.html">C&nbsp;Coverage</a></li>
+<li><a href="https://coveralls.io/r/obspy/obspy?branch=master">Coveralls</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Continuous&nbsp;Integration</li>
+<li><a href="http://tests.obspy.org/">Test&nbsp;Reports</a></li>
+<li><a href="https://travis-ci.org/obspy/obspy/"><span class="icon-travis"></span>&nbsp;Travis&nbsp;CI</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div id="content" class="container">
+  
+    <div class="breadcrumb pull-right"><a href="../genindex.html" title="General Index"
+         accesskey="I">index</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="../py-modindex.html" title="Python Module Index"
+         >modules</a>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="../contents.html">ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</a></li> 
+    </ol>
+  
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="obspy/ah/core.html">obspy.ah.core</a></li>
+<li><a href="obspy/arclink/client.html">obspy.arclink.client</a></li>
+<li><a href="obspy/core/ascii.html">obspy.core.ascii</a></li>
+<li><a href="obspy/core/event.html">obspy.core.event</a></li>
+<li><a href="obspy/core/json/core.html">obspy.core.json.core</a></li>
+<li><a href="obspy/core/json/default.html">obspy.core.json.default</a></li>
+<li><a href="obspy/core/preview.html">obspy.core.preview</a></li>
+<li><a href="obspy/core/quakeml.html">obspy.core.quakeml</a></li>
+<li><a href="obspy/core/stream.html">obspy.core.stream</a></li>
+<li><a href="obspy/core/trace.html">obspy.core.trace</a></li>
+<li><a href="obspy/core/utcdatetime.html">obspy.core.utcdatetime</a></li>
+<li><a href="obspy/core/util/attribdict.html">obspy.core.util.attribdict</a></li>
+<li><a href="obspy/core/util/base.html">obspy.core.util.base</a></li>
+<li><a href="obspy/core/util/decorator.html">obspy.core.util.decorator</a></li>
+<li><a href="obspy/core/util/geodetics.html">obspy.core.util.geodetics</a></li>
+<ul><li><a href="obspy/core/util/geodetics/FlinnEngdahl.html">obspy.core.util.geodetics.FlinnEngdahl</a></li>
+<li><a href="obspy/core/util/geodetics/base.html">obspy.core.util.geodetics.base</a></li>
+<li><a href="obspy/core/util/geodetics/flinnengdahl.html">obspy.core.util.geodetics.flinnengdahl</a></li>
+</ul><li><a href="obspy/core/util/misc.html">obspy.core.util.misc</a></li>
+<li><a href="obspy/core/util/obspy_types.html">obspy.core.util.obspy_types</a></li>
+<li><a href="obspy/core/util/testing.html">obspy.core.util.testing</a></li>
+<li><a href="obspy/core/util/version.html">obspy.core.util.version</a></li>
+<li><a href="obspy/css/core.html">obspy.css.core</a></li>
+<li><a href="obspy/datamark/core.html">obspy.datamark.core</a></li>
+<li><a href="obspy/db/client.html">obspy.db.client</a></li>
+<li><a href="obspy/db/db.html">obspy.db.db</a></li>
+<li><a href="obspy/db/feature.html">obspy.db.feature</a></li>
+<li><a href="obspy/db/indexer.html">obspy.db.indexer</a></li>
+<li><a href="obspy/db/util.html">obspy.db.util</a></li>
+<li><a href="obspy/earthworm/client.html">obspy.earthworm.client</a></li>
+<li><a href="obspy/fdsn/client.html">obspy.fdsn.client</a></li>
+<li><a href="obspy/gse2/core.html">obspy.gse2.core</a></li>
+<li><a href="obspy/gse2/libgse1.html">obspy.gse2.libgse1</a></li>
+<li><a href="obspy/gse2/libgse2.html">obspy.gse2.libgse2</a></li>
+<li><a href="obspy/gse2/paz.html">obspy.gse2.paz</a></li>
+<li><a href="obspy/imaging/beachball.html">obspy.imaging.beachball</a></li>
+<li><a href="obspy/imaging/maps.html">obspy.imaging.maps</a></li>
+<li><a href="obspy/imaging/mopad_wrapper.html">obspy.imaging.mopad_wrapper</a></li>
+<li><a href="obspy/imaging/spectrogram.html">obspy.imaging.spectrogram</a></li>
+<li><a href="obspy/imaging/waveform.html">obspy.imaging.waveform</a></li>
+<li><a href="obspy/iris/client.html">obspy.iris.client</a></li>
+<li><a href="obspy/mseed/core.html">obspy.mseed.core</a></li>
+<li><a href="obspy/mseed/util.html">obspy.mseed.util</a></li>
+<li><a href="obspy/ndk/core.html">obspy.ndk.core</a></li>
+<li><a href="obspy/neic/client.html">obspy.neic.client</a></li>
+<li><a href="obspy/neries/client.html">obspy.neries.client</a></li>
+<li><a href="obspy/pde/mchedr.html">obspy.pde.mchedr</a></li>
+<li><a href="obspy/realtime/rtmemory.html">obspy.realtime.rtmemory</a></li>
+<li><a href="obspy/realtime/rttrace.html">obspy.realtime.rttrace</a></li>
+<li><a href="obspy/realtime/signal.html">obspy.realtime.signal</a></li>
+<li><a href="obspy/sac/core.html">obspy.sac.core</a></li>
+<li><a href="obspy/sac/sacio.html">obspy.sac.sacio</a></li>
+<li><a href="obspy/seedlink/client/seedlinkconnection.html">obspy.seedlink.client.seedlinkconnection</a></li>
+<li><a href="obspy/seedlink/client/slnetstation.html">obspy.seedlink.client.slnetstation</a></li>
+<li><a href="obspy/seedlink/client/slstate.html">obspy.seedlink.client.slstate</a></li>
+<li><a href="obspy/seedlink/easyseedlink.html">obspy.seedlink.easyseedlink</a></li>
+<li><a href="obspy/seedlink/seedlinkexception.html">obspy.seedlink.seedlinkexception</a></li>
+<li><a href="obspy/seedlink/slclient.html">obspy.seedlink.slclient</a></li>
+<li><a href="obspy/seedlink/slpacket.html">obspy.seedlink.slpacket</a></li>
+<li><a href="obspy/seg2/seg2.html">obspy.seg2.seg2</a></li>
+<li><a href="obspy/segy/benchmark.html">obspy.segy.benchmark</a></li>
+<li><a href="obspy/segy/core.html">obspy.segy.core</a></li>
+<li><a href="obspy/segy/pack.html">obspy.segy.pack</a></li>
+<li><a href="obspy/segy/segy.html">obspy.segy.segy</a></li>
+<li><a href="obspy/segy/unpack.html">obspy.segy.unpack</a></li>
+<li><a href="obspy/segy/util.html">obspy.segy.util</a></li>
+<li><a href="obspy/seisan/core.html">obspy.seisan.core</a></li>
+<li><a href="obspy/seishub/client.html">obspy.seishub.client</a></li>
+<li><a href="obspy/sh/core.html">obspy.sh.core</a></li>
+<li><a href="obspy/signal/array_analysis.html">obspy.signal.array_analysis</a></li>
+<li><a href="obspy/signal/calibration.html">obspy.signal.calibration</a></li>
+<li><a href="obspy/signal/cpxtrace.html">obspy.signal.cpxtrace</a></li>
+<li><a href="obspy/signal/cross_correlation.html">obspy.signal.cross_correlation</a></li>
+<li><a href="obspy/signal/detrend.html">obspy.signal.detrend</a></li>
+<li><a href="obspy/signal/filter.html">obspy.signal.filter</a></li>
+<li><a href="obspy/signal/freqattributes.html">obspy.signal.freqattributes</a></li>
+<li><a href="obspy/signal/hoctavbands.html">obspy.signal.hoctavbands</a></li>
+<li><a href="obspy/signal/interpolation.html">obspy.signal.interpolation</a></li>
+<li><a href="obspy/signal/invsim.html">obspy.signal.invsim</a></li>
+<li><a href="obspy/signal/konnoohmachismoothing.html">obspy.signal.konnoohmachismoothing</a></li>
+<li><a href="obspy/signal/polarization.html">obspy.signal.polarization</a></li>
+<li><a href="obspy/signal/rotate.html">obspy.signal.rotate</a></li>
+<li><a href="obspy/signal/spectral_estimation.html">obspy.signal.spectral_estimation</a></li>
+<li><a href="obspy/signal/tf_misfit.html">obspy.signal.tf_misfit</a></li>
+<li><a href="obspy/signal/trigger.html">obspy.signal.trigger</a></li>
+<li><a href="obspy/signal/util.html">obspy.signal.util</a></li>
+<li><a href="obspy/station/channel.html">obspy.station.channel</a></li>
+<li><a href="obspy/station/inventory.html">obspy.station.inventory</a></li>
+<li><a href="obspy/station/network.html">obspy.station.network</a></li>
+<li><a href="obspy/station/response.html">obspy.station.response</a></li>
+<li><a href="obspy/station/station.html">obspy.station.station</a></li>
+<li><a href="obspy/station/stationxml.html">obspy.station.stationxml</a></li>
+<li><a href="obspy/station/util.html">obspy.station.util</a></li>
+<li><a href="obspy/taup/taup.html">obspy.taup.taup</a></li>
+<li><a href="obspy/wav/core.html">obspy.wav.core</a></li>
+<li><a href="obspy/xseed/fields.html">obspy.xseed.fields</a></li>
+<li><a href="obspy/xseed/parser.html">obspy.xseed.parser</a></li>
+<li><a href="obspy/xseed/utils.html">obspy.xseed.utils</a></li>
+<li><a href="obspy/y/core.html">obspy.y.core</a></li>
+</ul>
+
+</div>
+
+<footer>
+<p class="text-muted small">
+By the <a href="https://github.com/orgs/obspy/members">ObsPy
+Development Team</a> and many <a href="#contributers" role="button"
+data-toggle="modal" data-target="#contributers">Awesome Contributors</a>™ &nbsp;|&nbsp; Built with
+<a href="http://getbootstrap.com/">Bootstrap</a> and
+<a href="http://glyphicons.com//">Glyphicons</a> &nbsp;|&nbsp; Copyright 2008-2014
+</p>
+</footer>
+<div id="contributers" class="modal fade" tabindex="-1"
+role="dialog" aria-labelledby="contributersLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"
+aria-hidden="true">&times;</button>
+<h3 class="modal-title" id="contributersLabel">Thank you!</h3>
+</div>
+<div class="modal-body">
+<p>We would like to thank our contributors, whose efforts make
+this software what it is. These people have helped by writing code
+and documentation, and by testing. They have created and
+maintained this product, its associated libraries and
+applications, our build tools and our web sites.</p>
+<h4>Contributors</h4>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+<ul>
+<li>Adolfo Inza</li>
+<li>Alessia Maggi</li>
+<li>Anthony Lomax</li>
+<li>Bernhard Morgenstern</li>
+<li>Charles J. Ammon</li>
+<li>Christian Sippl</li>
+<li>Conny Hammer</li>
+<li>Elliott Sales de Andrade</li>
+<li>Fabian Engels</li>
+<li>Gaute Hope</li>
+<li>Joachim Saul</li>
+<li>Lars Krieger</li>
+<li>Lion Krischer</li>
+<li>Marius Isken</li>
+<li>Moritz Beyreuther</li>
+<li>Paul Käufl</li>
+<li>Philippe Lesage</li>
+<li>Sebastian Heimann</li>
+<li>Simon Kremers</li>
+<li>Sven Egdorf</li>
+<li>Thomas Lecocq</li>
+<li>Tom Richter</li>
+<li>Victor Kress</li>
+<li>Ólafur St. Arnarsson</li>
+</ul>
+</div>
+<div class="col-md-6">
+<ul>
+<li>Alberto Michelini</li>
+<li>Andreas Köhler</li>
+<li>Arthur Snoke</li>
+<li>Chad Trabant</li>
+<li>Chris Scheingraber</li>
+<li>Claudio Satriano</li>
+<li>David Ketchum</li>
+<li>Emiliano Russo</li>
+<li>Felix Bernauer</li>
+<li>Heiner Igel</li>
+<li>Joachim Wassermann</li>
+<li>Leonardo Uieda</li>
+<li>Marcus Walther</li>
+<li>Martin van Driel</li>
+<li>Nathaniel C. Miller</li>
+<li>Peter Danecek</li>
+<li>Robert Barsch</li>
+<li>Seyed Kasra Hosseini Zad</li>
+<li>Stefan Stange</li>
+<li>Sébastien Bonaimé</li>
+<li>Tobias Megies</li>
+<li>Tommaso Fabbri</li>
+<li>Yannik Behr</li>
+</ul>
+</div>
+</div>
+</div>
+<h4>Funds</h4>
+<p>ObsPy was partially funded by the</p>
+<ul>
+<li>German Science Foundation (DFG) via grant DFG IG 16/9-1</li>
+<li>German Ministry for Education and Research (BMBF), GEOTECHNOLOGIEN grant 03G0646H.</li>
+<li>NERA project (Network of European Research Infrastructures for Earthquake Risk Assessment and Mitigation) under the European Community&#39;s Seventh Framework Programme (FP7/2007-2013) grant agreement n° 262330</li>
+<li>Leibniz Institute for Applied Geophysics (LIAG)</li>
+</ul>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+  </body>
+</html>

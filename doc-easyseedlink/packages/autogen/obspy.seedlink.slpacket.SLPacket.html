@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>obspy.seedlink.slpacket.SLPacket &mdash; ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</title>
+    
+    <link rel="stylesheet" href="../../static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/font.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.7.x-3204-g87fa0b3c26-dirty',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../static/favicon.ico"/>
+    <link rel="top" title="ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)" href="../../index.html" />
+    <link rel="up" title="obspy.seedlink.slpacket" href="obspy.seedlink.slpacket.html" />
+    <link rel="next" title="obspy.seedlink.slpacket.SLPacket.getMSRecord" href="obspy.seedlink.slpacket.SLPacket.getMSRecord.html" />
+    <link rel="prev" title="obspy.seedlink.slpacket.SLPacket.__unicode__" href="obspy.seedlink.slpacket.SLPacket.__unicode__.html" />
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript">
+  var shiftWindow = function() { scrollBy(0, -70) };
+  if (location.hash) shiftWindow();
+  window.addEventListener("hashchange", shiftWindow);
+</script>
+
+  </head>
+  <body>
+<div id="wrapper">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="/" class="navbar-brand" title="Home"><span class="icon-obspy"></span>&nbsp;ObsPy</a>
+</div>
+<div class="navbar-collapse collapse">
+<form class="navbar-form navbar-right" role="search" method="get" action="http://docs.obspy.org/search.html">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Search Docs" name="q">
+</div>
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="https://github.com/obspy/obspy/" title="GitHub"><span class="icon-github iconx2"></span><span class="hidden-sm">&nbsp;GitHub</span></a></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Documentation"><span class="glyphicon glyphicon-book iconx2"></span><span class="hidden-sm">&nbsp;Documentation</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Getting&nbsp;Started</li>
+<li><a href="http://tutorial.obspy.org/">Tutorial</a></li>
+<li><a href="http://gallery.obspy.org/">Gallery</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">API&nbsp;Documentation&nbsp;(latest&nbsp;release)</li>
+<li class="dropdown-submenu">
+<a href="#">General&nbsp;Packages</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.core.html">obspy.core</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.imaging.html">obspy.imaging</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.realtime.html">obspy.realtime</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.signal.html">obspy.signal</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.station.html">obspy.station</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.taup.html">obspy.taup</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.xseed.html">obspy.xseed</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Waveform&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.css.html">obspy.css</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.datamark.html">obspy.datamark</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.gse2.html">obspy.gse2</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.mseed.html">obspy.mseed</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.sac.html">obspy.sac</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seisan.html">obspy.seisan</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seg2.html">obspy.seg2</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.segy.html">obspy.segy</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.sh.html">obspy.sh</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.wav.html">obspy.wav</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.y.html">obspy.y</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Database&nbsp;and&nbsp;Web&nbsp;Service&nbsp;Clients</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/packages/obspy.arclink.html">obspy.arclink</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.db.html">obspy.db</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.earthworm.html">obspy.earthworm</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.fdsn.html">obspy.fdsn</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.iris.html">obspy.iris</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.neic.html">obspy.neic</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.neries.html">obspy.neries</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.pde.html">obspy.pde</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seedlink.html">obspy.seedlink</a></li>
+<li><a href="http://docs.obspy.org/packages/obspy.seishub.html">obspy.seishub</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="dropdown-header">API&nbsp;Documentation&nbsp;(current&nbsp;master)</li>
+<li class="dropdown-submenu">
+<a href="#">General&nbsp;Packages</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.core.html">obspy.core</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.imaging.html">obspy.imaging</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.realtime.html">obspy.realtime</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.signal.html">obspy.signal</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.station.html">obspy.station</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.taup.html">obspy.taup</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.xseed.html">obspy.xseed</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Waveform&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.css.html">obspy.css</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.datamark.html">obspy.datamark</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.gse2.html">obspy.gse2</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.mseed.html">obspy.mseed</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.sac.html">obspy.sac</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seisan.html">obspy.seisan</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seg2.html">obspy.seg2</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.segy.html">obspy.segy</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.sh.html">obspy.sh</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.wav.html">obspy.wav</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.y.html">obspy.y</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Event&nbsp;Data&nbsp;Import/Export</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.core.quakeml.html">obspy.core.quakeml</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.ndk.html">obspy.ndk</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.pde.html">obspy.pde</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a href="#">Database&nbsp;and&nbsp;Web&nbsp;Service&nbsp;Clients</a>
+<ul class="dropdown-menu">
+<li><a href="http://docs.obspy.org/master/packages/obspy.arclink.html">obspy.arclink</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.db.html">obspy.db</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.earthworm.html">obspy.earthworm</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.fdsn.html">obspy.fdsn</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.iris.html">obspy.iris</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.neic.html">obspy.neic</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.neries.html">obspy.neries</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seedlink.html">obspy.seedlink</a></li>
+<li><a href="http://docs.obspy.org/master/packages/obspy.seishub.html">obspy.seishub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Mailing&nbsp;Lists"><span class="glyphicon glyphicon-envelope iconx2"></span><span class="hidden-sm">&nbsp;Mailing&nbsp;Lists</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Announcements&nbsp;Mailing&nbsp;List&nbsp;(public)</li>
+<li><a href="http://lists.swapbytes.de/mailman/listinfo/obspy-announcements"><span class="glyphicon glyphicon-user"></span>&nbsp;Subscribe</a></li>
+<li><a href="http://lists.swapbytes.de/archives/obspy-announcements/"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Archive</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Users&nbsp;Mailing&nbsp;List&nbsp;(public)</li>
+<li><a href="http://lists.swapbytes.de/mailman/listinfo/obspy-users"><span class="glyphicon glyphicon-user"></span>&nbsp;Subscribe</a></li>
+<li><a href="http://lists.swapbytes.de/archives/obspy-users"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Archives</a></li>
+<li><a href="mailto:users@obspy.org"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Post&nbsp;a&nbsp;message</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Developer&nbsp;Resources"><span class="glyphicon glyphicon-cog iconx2"></span><span class="hidden-sm">&nbsp;Developer&nbsp;Resources</span>&nbsp;<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="https://github.com/obspy/obspy/blob/master/CONTRIBUTING.md">How&nbsp;to&nbsp;contribute</a></li>
+<li><a href="http://docs.obspy.org/coding_style.html">Coding&nbsp;Style&nbsp;Guide</a></li>
+<li><a href="https://github.com/obspy/obspy/releases/">All&nbsp;Releases</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Code&nbsp;Analysis</li>
+<li><a href="http://docs.obspy.org/master/pep8/index.html">PEP8</a></li>
+<li><a href="http://docs.obspy.org/master/coverage/index.html">Python&nbsp;Coverage</a></li>
+<li><a href="http://docs.obspy.org/master/c_coverage/index.html">C&nbsp;Coverage</a></li>
+<li><a href="https://coveralls.io/r/obspy/obspy?branch=master">Coveralls</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Continuous&nbsp;Integration</li>
+<li><a href="http://tests.obspy.org/">Test&nbsp;Reports</a></li>
+<li><a href="https://travis-ci.org/obspy/obspy/"><span class="icon-travis"></span>&nbsp;Travis&nbsp;CI</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div id="content" class="container">
+  
+    <div class="breadcrumb pull-right"><a href="../../genindex.html" title="General Index"
+         accesskey="I">index</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="../../py-modindex.html" title="Python Module Index"
+         >modules</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="obspy.seedlink.slpacket.SLPacket.getMSRecord.html" title="obspy.seedlink.slpacket.SLPacket.getMSRecord"
+         accesskey="N">next</a><span style="color: #ccc; padding: 0 5px;">| </span><a href="obspy.seedlink.slpacket.SLPacket.__unicode__.html" title="obspy.seedlink.slpacket.SLPacket.__unicode__"
+         accesskey="P">previous</a>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="../../contents.html">ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</a></li>
+        <li><a href="../index.html" >ObsPy Library Reference</a></li>
+        <li><a href="../obspy.seedlink.html" >obspy.seedlink - SeedLink client for ObsPy</a></li>
+        <li><a href="obspy.seedlink.slpacket.html" accesskey="U">obspy.seedlink.slpacket</a></li> 
+    </ol>
+  
+  <div class="section" id="obspy-seedlink-slpacket-slpacket">
+<h1>obspy.seedlink.slpacket.SLPacket<a class="headerlink" href="#obspy-seedlink-slpacket-slpacket" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="obspy.seedlink.slpacket.SLPacket">
+<em class="property">class </em><tt class="descname">SLPacket</tt><big>(</big><em>bytes=None</em>, <em>offset=None</em><big>)</big><a class="reference internal" href="../../modules/obspy/seedlink/slpacket.html#SLPacket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#obspy.seedlink.slpacket.SLPacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">future.types.newobject.newobject</span></tt></p>
+<p>Class to hold and decode a SeedLink packet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TYPE_SLINFT</strong> <span class="dash" /> Packet type is terminated info packet.</li>
+<li><strong>TYPE_SLINF</strong> <span class="dash" /> Packet type is non-terminated info packet.</li>
+<li><strong>SLTERMINATE</strong> <span class="dash" /> Terminate flag - connection was closed by the server or
+the termination sequence completed.</li>
+<li><strong>SLNOPACKET</strong> <span class="dash" /> No packet flag - indicates no data available.</li>
+<li><strong>SLERROR</strong> <span class="dash" /> Error flag - indicates server reported an error.</li>
+<li><strong>SLHEADSIZE</strong> <span class="dash" /> SeedLink packet header size.</li>
+<li><strong>SLRECSIZE</strong> <span class="dash" /> Mini-SEED record size.</li>
+<li><strong>SIGNATURE</strong> <span class="dash" /> SeedLink header signature.</li>
+<li><strong>INFOSIGNATURE</strong> <span class="dash" /> SeedLink INFO packet signature.</li>
+<li><strong>ERRORSIGNATURE</strong> <span class="dash" /> SeedLink ERROR signature.</li>
+<li><strong>ENDSIGNATURE</strong> <span class="dash" /> SeedLink END signature.</li>
+<li><strong>slhead</strong> <span class="dash" /> The SeedLink header.</li>
+<li><strong>msrecord</strong> <span class="dash" /> The MiniSEED record.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">ENDSIGNATURE</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">ERRORSIGNATURE</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">INFOSIGNATURE</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">SIGNATURE</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">SLERROR</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">SLHEADSIZE</span></tt></td>
+<td>int(x=0) -&gt; int or long</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">SLNOPACKET</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">SLRECSIZE</span></tt></td>
+<td>int(x=0) -&gt; int or long</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">SLTERMINATE</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">TYPE_SLINF</span></tt></td>
+<td>int(x=0) -&gt; int or long</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">TYPE_SLINFT</span></tt></td>
+<td>int(x=0) -&gt; int or long</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">__dict__</span></tt></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__doc__</span></tt></td>
+<td>unicode(object=&#8217;&#8216;) -&gt; unicode object</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">__module__</span></tt></td>
+<td>str(object=&#8217;&#8216;) -&gt; string</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__weakref__</span></tt></td>
+<td>list of weak references to the object (if defined)</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Public Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.getMSRecord.html#obspy.seedlink.slpacket.SLPacket.getMSRecord" title="obspy.seedlink.slpacket.SLPacket.getMSRecord"><tt class="xref py py-obj docutils literal"><span class="pre">getMSRecord</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.getSequenceNumber.html#obspy.seedlink.slpacket.SLPacket.getSequenceNumber" title="obspy.seedlink.slpacket.SLPacket.getSequenceNumber"><tt class="xref py py-obj docutils literal"><span class="pre">getSequenceNumber</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.getStringPayload.html#obspy.seedlink.slpacket.SLPacket.getStringPayload" title="obspy.seedlink.slpacket.SLPacket.getStringPayload"><tt class="xref py py-obj docutils literal"><span class="pre">getStringPayload</span></tt></a></td>
+<td>Get the MiniSEED payload, parsed as string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.getTrace.html#obspy.seedlink.slpacket.SLPacket.getTrace" title="obspy.seedlink.slpacket.SLPacket.getTrace"><tt class="xref py py-obj docutils literal"><span class="pre">getTrace</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.getType.html#obspy.seedlink.slpacket.SLPacket.getType" title="obspy.seedlink.slpacket.SLPacket.getType"><tt class="xref py py-obj docutils literal"><span class="pre">getType</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.next.html#obspy.seedlink.slpacket.SLPacket.next" title="obspy.seedlink.slpacket.SLPacket.next"><tt class="xref py py-obj docutils literal"><span class="pre">next</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Special Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.__init__.html#obspy.seedlink.slpacket.SLPacket.__init__" title="obspy.seedlink.slpacket.SLPacket.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.__long__.html#obspy.seedlink.slpacket.SLPacket.__long__" title="obspy.seedlink.slpacket.SLPacket.__long__"><tt class="xref py py-obj docutils literal"><span class="pre">__long__</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.__native__.html#obspy.seedlink.slpacket.SLPacket.__native__" title="obspy.seedlink.slpacket.SLPacket.__native__"><tt class="xref py py-obj docutils literal"><span class="pre">__native__</span></tt></a></td>
+<td>Hook for the future.utils.native() function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.__nonzero__.html#obspy.seedlink.slpacket.SLPacket.__nonzero__" title="obspy.seedlink.slpacket.SLPacket.__nonzero__"><tt class="xref py py-obj docutils literal"><span class="pre">__nonzero__</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="obspy.seedlink.slpacket.SLPacket.__unicode__.html#obspy.seedlink.slpacket.SLPacket.__unicode__" title="obspy.seedlink.slpacket.SLPacket.__unicode__"><tt class="xref py py-obj docutils literal"><span class="pre">__unicode__</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+</div>
+
+<footer>
+<p class="text-muted small">
+By the <a href="https://github.com/orgs/obspy/members">ObsPy
+Development Team</a> and many <a href="#contributers" role="button"
+data-toggle="modal" data-target="#contributers">Awesome Contributors</a>™ &nbsp;|&nbsp; Built with
+<a href="http://getbootstrap.com/">Bootstrap</a> and
+<a href="http://glyphicons.com//">Glyphicons</a> &nbsp;|&nbsp; Copyright 2008-2014
+</p>
+</footer>
+<div id="contributers" class="modal fade" tabindex="-1"
+role="dialog" aria-labelledby="contributersLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"
+aria-hidden="true">&times;</button>
+<h3 class="modal-title" id="contributersLabel">Thank you!</h3>
+</div>
+<div class="modal-body">
+<p>We would like to thank our contributors, whose efforts make
+this software what it is. These people have helped by writing code
+and documentation, and by testing. They have created and
+maintained this product, its associated libraries and
+applications, our build tools and our web sites.</p>
+<h4>Contributors</h4>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+<ul>
+<li>Adolfo Inza</li>
+<li>Alessia Maggi</li>
+<li>Anthony Lomax</li>
+<li>Bernhard Morgenstern</li>
+<li>Charles J. Ammon</li>
+<li>Christian Sippl</li>
+<li>Conny Hammer</li>
+<li>Elliott Sales de Andrade</li>
+<li>Fabian Engels</li>
+<li>Gaute Hope</li>
+<li>Joachim Saul</li>
+<li>Lars Krieger</li>
+<li>Lion Krischer</li>
+<li>Marius Isken</li>
+<li>Moritz Beyreuther</li>
+<li>Paul Käufl</li>
+<li>Philippe Lesage</li>
+<li>Sebastian Heimann</li>
+<li>Simon Kremers</li>
+<li>Sven Egdorf</li>
+<li>Thomas Lecocq</li>
+<li>Tom Richter</li>
+<li>Victor Kress</li>
+<li>Ólafur St. Arnarsson</li>
+</ul>
+</div>
+<div class="col-md-6">
+<ul>
+<li>Alberto Michelini</li>
+<li>Andreas Köhler</li>
+<li>Arthur Snoke</li>
+<li>Chad Trabant</li>
+<li>Chris Scheingraber</li>
+<li>Claudio Satriano</li>
+<li>David Ketchum</li>
+<li>Emiliano Russo</li>
+<li>Felix Bernauer</li>
+<li>Heiner Igel</li>
+<li>Joachim Wassermann</li>
+<li>Leonardo Uieda</li>
+<li>Marcus Walther</li>
+<li>Martin van Driel</li>
+<li>Nathaniel C. Miller</li>
+<li>Peter Danecek</li>
+<li>Robert Barsch</li>
+<li>Seyed Kasra Hosseini Zad</li>
+<li>Stefan Stange</li>
+<li>Sébastien Bonaimé</li>
+<li>Tobias Megies</li>
+<li>Tommaso Fabbri</li>
+<li>Yannik Behr</li>
+</ul>
+</div>
+</div>
+</div>
+<h4>Funds</h4>
+<p>ObsPy was partially funded by the</p>
+<ul>
+<li>German Science Foundation (DFG) via grant DFG IG 16/9-1</li>
+<li>German Ministry for Education and Research (BMBF), GEOTECHNOLOGIEN grant 03G0646H.</li>
+<li>NERA project (Network of European Research Infrastructures for Earthquake Risk Assessment and Mitigation) under the European Community&#39;s Seventh Framework Programme (FP7/2007-2013) grant agreement n° 262330</li>
+<li>Leibniz Institute for Applied Geophysics (LIAG)</li>
+</ul>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+  </body>
+</html>
