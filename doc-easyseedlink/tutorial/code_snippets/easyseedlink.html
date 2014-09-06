@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>32. Connecting to a SeedLink Server &mdash; ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</title>
+    <title>32. Connecting to a SeedLink Server &mdash; ObsPy Documentation (0.7.x-3222-g79df757179)</title>
     
     <link rel="stylesheet" href="../../static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.7.x-3204-g87fa0b3c26-dirty',
+        VERSION:     '0.7.x-3222-g79df757179',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -34,7 +34,7 @@
     <script type="text/javascript" src="../../static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../static/favicon.ico"/>
-    <link rel="top" title="ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)" href="../../index.html" />
+    <link rel="top" title="ObsPy Documentation (0.7.x-3222-g79df757179)" href="../../index.html" />
     <link rel="up" title="ObsPy Tutorial" href="../index.html" />
     <link rel="next" title="Advanced Exercise" href="../advanced_exercise/advanced_exercise.html" />
     <link rel="prev" title="31. Handling custom defined tags in QuakeML and the ObsPy Catalog/Event framework" href="quakeml_custom_tags.html" />
@@ -219,16 +219,16 @@
          accesskey="P">previous</a>
     </div>
     <ol class="breadcrumb">
-        <li><a href="../../contents.html">ObsPy Documentation (0.7.x-3204-g87fa0b3c26-dirty)</a></li>
+        <li><a href="../../contents.html">ObsPy Documentation (0.7.x-3222-g79df757179)</a></li>
         <li><a href="../index.html" accesskey="U">ObsPy Tutorial</a></li> 
     </ol>
   
   <div class="section" id="connecting-to-a-seedlink-server">
-<h1>32. Connecting to a SeedLink Server<a class="headerlink" href="#connecting-to-a-seedlink-server" title="Permalink to this headline">¶</a></h1>
+<span id="seedlink-tutorial"></span><h1>32. Connecting to a SeedLink Server<a class="headerlink" href="#connecting-to-a-seedlink-server" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="../../packages/obspy.seedlink.html#module-obspy.seedlink" title="obspy.seedlink"><tt class="xref py py-mod docutils literal"><span class="pre">obspy.seedlink</span></tt></a> module provides a Python implementation of the
 SeedLink client protocol. The <a class="reference internal" href="../../packages/autogen/obspy.seedlink.easyseedlink.html#module-obspy.seedlink.easyseedlink" title="obspy.seedlink.easyseedlink"><tt class="xref py py-mod docutils literal"><span class="pre">obspy.seedlink.easyseedlink</span></tt></a> submodule
-contains an easy-to-use interface to the SeedLink implementation that allows
-for easily implementing a SeedLink client.</p>
+contains a high-level interface to the SeedLink implementation that facilitates
+the creation of a SeedLink client.</p>
 <div class="section" id="the-create-client-function">
 <h2>32.1. The create_client function<a class="headerlink" href="#the-create-client-function" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to connect to a SeedLink server is using the
