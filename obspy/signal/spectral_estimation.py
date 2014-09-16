@@ -502,7 +502,7 @@ class PPSD():
         insert this piece of data.
         """
         index1 = bisect.bisect_left(self.times_used, utcdatetime)
-        index2 = bisect.bisect_right(self.times_used,
+        index2 = bisect.bisect_left(self.times_used,
                                      utcdatetime + self.ppsd_length)
         if index1 != index2:
             return True
